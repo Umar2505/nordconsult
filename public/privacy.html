@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Privacy — Nord Consult</title>
+  <style>body{margin:0;background:#090b0e;color:#e9e4da;font:16px/1.65 system-ui,sans-serif}main{max-width:720px;margin:10vh auto;padding:0 24px 8vh}a{color:#d8bc89}h1{font-size:clamp(42px,7vw,76px);line-height:1.05}small{color:#a9aaa5}.language-switch{display:flex;gap:5px;margin-bottom:50px}.language-switch button{border:1px solid #7b7469;background:transparent;color:#c4b69b;padding:7px 10px;cursor:pointer}.language-switch button[aria-pressed=true]{background:#d9bf8e;color:#111718;border-color:#d9bf8e}a:focus-visible,button:focus-visible{outline:2px solid #d9bf8e;outline-offset:3px}</style>
+</head>
+<body><main>
+  <div class="language-switch" role="group" aria-label="Language"><button type="button" data-language="uz">UZ</button><button type="button" data-language="ru">RU</button><button type="button" data-language="en">EN</button></div>
+  <small id="privacy-kicker"></small><h1 id="privacy-title"></h1>
+  <p id="privacy-copy"></p><p id="privacy-delivery"></p><p id="privacy-retention"></p>
+  <p><a id="privacy-contact" href="mailto:rustamovumar250@gmail.com"></a></p>
+  <p><a id="privacy-return" href="/"></a></p>
+</main><script>
+const copy={
+  en:['Privacy — Nord Consult','PRIVACY','Your information','When you submit an enquiry, we use your name, contact details and study preferences to respond to you about studying abroad. Please do not include sensitive information in the optional message.','The form sends your enquiry through FormSubmit to the Nord Consult inbox. FormSubmit processes the submission and keeps an archive for 30 days. Your details are not used for marketing by Nord Consult.','To ask about or request deletion of your enquiry, email us.','Email Nord Consult','Return to the main page','Language'],
+  uz:['Maxfiylik — Nord Consult','MAXFIYLIK','Ma’lumotlaringiz','Murojaat yuborsangiz, ismingiz, aloqa ma’lumotlaringiz va o‘qish bo‘yicha rejalaringizdan sizga javob berish uchun foydalanamiz. Qo‘shimcha xabarga maxfiy ma’lumot yozmang.','Murojaatingiz FormSubmit orqali Nord Consult elektron pochtasiga yetkaziladi. FormSubmit yuborilgan ma’lumotlarni qayta ishlaydi va ularning nusxasini 30 kun saqlaydi. Nord Consult ma’lumotlaringizdan reklama maqsadida foydalanmaydi.','Murojaatingiz haqida savol berish yoki uni o‘chirishni so‘rash uchun bizga yozing.','Nord Consult’ga yozish','Asosiy sahifaga qaytish','Til'],
+  ru:['Конфиденциальность — Nord Consult','КОНФИДЕНЦИАЛЬНОСТЬ','Ваши данные','Если вы отправите заявку, мы используем ваше имя, контакты и пожелания по учёбе, чтобы ответить на ваш вопрос об обучении за рубежом. Не указывайте конфиденциальные сведения в дополнительном сообщении.','Заявка отправляется через FormSubmit на почту Nord Consult. Сервис обрабатывает данные и хранит копию заявки 30 дней. Nord Consult не использует ваши данные для рекламных рассылок.','Чтобы задать вопрос о своей заявке или попросить удалить её, напишите нам.','Написать Nord Consult','Вернуться на главную','Язык']
+};
+function render(lang){const value=copy[lang]||copy.en;document.documentElement.lang=lang;document.title=value[0];['privacy-kicker','privacy-title','privacy-copy','privacy-delivery','privacy-retention','privacy-contact','privacy-return'].forEach((id,i)=>document.getElementById(id).textContent=value[i+1]);document.querySelector('.language-switch').setAttribute('aria-label',value[8]);document.querySelectorAll('[data-language]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.language===lang)))}
+let lang='en';try{lang=localStorage.getItem('nord-language-v2')||'en'}catch{}render(lang);document.querySelectorAll('[data-language]').forEach(button=>button.addEventListener('click',()=>{try{localStorage.setItem('nord-language-v2',button.dataset.language)}catch{}render(button.dataset.language)}));
+</script></body></html>

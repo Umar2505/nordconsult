@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#090b0e" />
+    <meta name="description" content="See the research, preparation and people behind a realistic international study plan." />
+    <title>Behind Every Journey — Nord Consult</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="loading" id="loading" role="status" aria-live="polite"><span class="loading__mark">N ✦</span><span>PREPARING YOUR JOURNEY</span><i></i></div>
+      <main class="scene" id="decision" aria-label="An interactive journey from the first decision to arrival at university">
+        <div class="sr-only" aria-label="Illustrative student journey">This fictional journey follows Alex Karimov from Uzbekistan, studying Computer Science. The example profile has a budget of €10,000 per year, IELTS 6.5 and a scholarship priority. The journey explores destinations, selects Finland, prepares documents and an application, receives a fictional admission, then proceeds to visa preparation and departure. Scene five presents independently published exchange stories that are not Nord Consult client outcomes. Scene seven uses credited prototype photography to present Trondheim and NTNU as an illustrative study destination. Scene eight uses fictional documents, licensed development photography clearly labeled as placeholders, to illustrate the preparation process. These examples do not represent verified client outcomes, company staff, a university partnership, or guaranteed admission.</div>
+        <div class="scene__sticky">
+          <div class="atmosphere" aria-hidden="true"></div>
+          <div class="dawn" id="dawn" aria-hidden="true"></div>
+          <div class="story-environment" id="story-environment" aria-hidden="true">
+          </div>
+          <canvas id="experience" aria-label="A passport that opens as you scroll"></canvas>
+
+          <header class="navigation">
+            <a class="brand" href="#decision" aria-label="Nord Consult home"><span class="brand__mark">N<span>✦</span></span><span class="brand__name">NORD<span>CONSULT</span></span></a>
+            <nav aria-label="Main navigation">
+              <a href="#destinations">Destinations</a>
+              <a href="#roadmap-start">How it works</a>
+              <a href="#build-start">Build yours</a>
+            </nav>
+            <div class="navigation__actions"><div class="language-switch" role="group" aria-label="Language"><button type="button" data-language="uz" aria-pressed="false">UZ</button><button type="button" data-language="ru" aria-pressed="false">RU</button><button type="button" data-language="en" aria-pressed="true">EN</button></div><a class="navigation__journey" href="#opening">Start your journey <span aria-hidden="true">↗</span></a></div>
+          </header>
+
+          <div class="intro" id="intro">
+            <p class="eyebrow"><span class="eyebrow__dash"></span> YOUR NEXT CHAPTER STARTS HERE</p>
+            <h1>
+              <span class="line"><span class="line__inner">YOUR FUTURE</span></span>
+              <span class="line"><span class="line__inner">DOESN'T HAVE</span></span>
+              <span class="line"><span class="line__inner">TO STAY <em>HERE.</em></span></span>
+            </h1>
+            <div class="intro__lower">
+              <p class="support">Thousands of universities.<br />Hundreds of cities.<br />One decision that can change everything.</p>
+              <a class="primary-cta" href="#opening"><span>Start your journey</span><span class="primary-cta__arrow" aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+
+          <p class="microcopy" id="microcopy" aria-hidden="true">ONE DECISION. <span>A WORLD OF POSSIBILITIES.</span></p>
+
+          <div class="scene-two" id="scene-two">
+            <p class="scene-two__kicker">02 / 09 &nbsp; WHERE COULD YOU GO?</p>
+            <h2 aria-label="The world just became your campus."><span class="scene-two__line"><span>THE WORLD</span></span><span class="scene-two__line"><span>JUST BECAME</span></span><span class="scene-two__line"><span>YOUR <em>CAMPUS.</em></span></span></h2>
+            <p class="scene-two__support">Your education doesn't have to be limited by borders.<br />Explore universities, countries and opportunities around the world.</p>
+          </div>
+          <div class="final-question" id="final-question">BUT WHICH ONE IS RIGHT FOR <em>YOU?</em></div>
+          <div class="scene-three" id="scene-three">
+            <p class="capital-gallery__eyebrow">03 / 09 &nbsp; CAPITALS OF POSSIBILITY</p>
+            <div class="capital-gallery__story" id="capital-story">
+              <p>THE WORLD IS OPEN</p>
+              <h2>EIGHT CAPITALS.<br /><em>ONE FUTURE.</em></h2>
+              <span>From Tashkent to the world: hundreds of possibilities, shaped around your goals, budget and future.</span>
+            </div>
+            <div class="capital-gallery__handoff" id="capital-handoff">
+              <p>EXPLORING IS ONLY THE BEGINNING.</p>
+              <h2>POSSIBILITY<br />BECOMES A <em>PLAN.</em></h2>
+              <small>Your passport returns. Next, we map every step of the journey.</small>
+            </div>
+            <div class="capital-gallery" aria-label="Capital cities connected to the destinations on the globe">
+              <figure class="capital-card"><img src="https://images.unsplash.com/photo-1715966743489-0ac1138420a5?auto=format&amp;fit=crop&amp;w=1400&amp;q=82" alt="Tashkent skyline, Uzbekistan" decoding="async" /><figcaption><strong>TASHKENT</strong><span>UZBEKISTAN · ZBS / UNSPLASH</span></figcaption></figure>
+              <figure class="capital-card"><img src="https://images.unsplash.com/photo-1538332576228-eb5b4c4de6f5?auto=format&amp;fit=crop&amp;w=1400&amp;q=82" alt="Helsinki cityscape, Finland" decoding="async" /><figcaption><strong>HELSINKI</strong><span>FINLAND · TAPIO HAAJA / UNSPLASH</span></figcaption></figure>
+              <figure class="capital-card"><img src="https://images.unsplash.com/photo-1509356843151-3e7d96241e11?auto=format&amp;fit=crop&amp;w=1400&amp;q=82" alt="Stockholm waterfront, Sweden" decoding="async" /><figcaption><strong>STOCKHOLM</strong><span>SWEDEN · RAPHAEL ANDRES / UNSPLASH</span></figcaption></figure>
+              <figure class="capital-card"><img src="https://images.unsplash.com/photo-1433757741270-94a3bcadc2f3?auto=format&amp;fit=crop&amp;w=1400&amp;q=82" alt="Oslo waterfront, Norway" decoding="async" /><figcaption><strong>OSLO</strong><span>NORWAY · CHRISTOFFER ENGSTRÖM / UNSPLASH</span></figcaption></figure>
+              <figure class="capital-card"><img src="https://images.unsplash.com/photo-1599946347371-68eb71b16afc?auto=format&amp;fit=crop&amp;w=1400&amp;q=82" alt="Berlin cityscape, Germany" decoding="async" /><figcaption><strong>BERLIN</strong><span>GERMANY · FLORIAN WEHDE / UNSPLASH</span></figcaption></figure>
+              <figure class="capital-card"><img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&amp;fit=crop&amp;w=1400&amp;q=82" alt="Rome cityscape, Italy" decoding="async" /><figcaption><strong>ROME</strong><span>ITALY · DAVID KÖHLER / UNSPLASH</span></figcaption></figure>
+              <figure class="capital-card"><img src="https://images.unsplash.com/photo-1534351590666-13e3e96b5017?auto=format&amp;fit=crop&amp;w=1400&amp;q=82" alt="Amsterdam canal, Netherlands" decoding="async" /><figcaption><strong>AMSTERDAM</strong><span>NETHERLANDS · UNSPLASH</span></figcaption></figure>
+              <figure class="capital-card"><img src="https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?auto=format&amp;fit=crop&amp;w=1400&amp;q=82" alt="Beijing architecture, China" decoding="async" /><figcaption><strong>BEIJING</strong><span>CHINA · LING TANG / UNSPLASH</span></figcaption></figure>
+            </div>
+          </div>
+          <div class="scene-four" id="scene-four">
+            <div class="scene-four__opening" id="roadmap-opening"><p>04 / 09 &nbsp; YOUR ROADMAP</p><h2>YOUR JOURNEY<br /><em>STARTS HERE.</em></h2><small>One step at a time.<br />From your first consultation to your first day abroad.</small></div>
+            <div class="scene-four__milestone" id="roadmap-milestone"><p id="roadmap-kicker">01 / YOUR PROFILE</p><h2 id="roadmap-headline">IT STARTS WITH YOU.</h2><small id="roadmap-copy">We begin with your goals, budget and academic background.</small></div>
+            <div class="scene-four__university-note" id="roadmap-university-note">NOT EVERY GOOD UNIVERSITY<br />IS GOOD FOR <em>YOU.</em></div>
+            <div class="scene-four__application-state" id="roadmap-application-state">SUBMIT APPLICATION</div>
+            <div class="scene-four__wait" id="roadmap-wait"><span>AND THEN...</span><strong>YOU WAIT.</strong></div>
+            <div class="scene-four__acceptance" id="roadmap-acceptance"><span>CONGRATULATIONS</span><h2>YOU'VE BEEN<br /><em>ACCEPTED.</em></h2></div>
+            <div class="scene-four__visa" id="roadmap-visa">VISA APPROVED <small>ILLUSTRATIVE STORY STATE</small></div>
+            <div class="scene-four__final" id="roadmap-final"><p>FROM YOUR FIRST QUESTION</p><h2>TO YOUR<br /><em>FIRST FLIGHT.</em></h2><small>WE'RE WITH YOU THROUGH THE JOURNEY.</small></div>
+          </div>
+          <section class="scene-five" id="scene-five" aria-label="Possible journeys" aria-hidden="true">
+            <p class="scene-five__eyebrow">05 / 09 &nbsp; POSSIBLE JOURNEYS <span>INDEPENDENTLY PUBLISHED EXCHANGE STORIES</span></p>
+            <div class="scene-five__scale" id="stories-one">ONE JOURNEY.</div>
+            <div class="scene-five__scale scene-five__scale--many" id="stories-many">MANY POSSIBILITIES.</div>
+            <p class="scene-five__explore" id="stories-explore">EXPLORE A STORY ON THE GLOBE</p>
+            <article class="scene-five__story" id="stories-story">
+              <div class="scene-five__portrait"><img id="stories-portrait" alt="" /><i></i></div>
+              <div class="scene-five__story-copy">
+                <div class="scene-five__story-top"><span id="stories-index"></span><span>PUBLIC EXCHANGE STORY · NOT A NORD CONSULT CLIENT</span></div>
+                <h2 id="stories-name"></h2>
+                <div class="scene-five__story-rule"></div>
+                <p class="scene-five__story-route" id="stories-route"></p>
+                <p id="stories-program"></p><p id="stories-university"></p><p id="stories-scholarship"></p>
+                <strong id="stories-result"></strong><br />
+                <a id="stories-source" href="https://exchanges.state.gov/" target="_blank" rel="noopener">READ THE PUBLISHED STORY ↗</a>
+              </div>
+            </article>
+            <div class="scene-five__network-title" id="stories-network-title">EVERY PATH<br /><em>STARTS SOMEWHERE.</em></div>
+            <div class="scene-five__trust scene-five__trust--second" id="stories-trust-second">YOUR PATH CAN<br /><em>BE YOUR OWN.</em></div>
+            <div class="scene-five__unfinished" id="stories-unfinished">THE NEXT JOURNEY<br /><em>IS STILL UNWRITTEN.</em></div>
+            <div class="scene-five__question" id="stories-question">WHERE COULD<br /><em>YOURS LEAD?</em></div>
+            <div class="scene-five__start" id="stories-start-hint">BUILD YOUR JOURNEY <span>→</span><i></i></div>
+            <div class="scene-five__hotspots" id="stories-hotspots"></div>
+          </section>
+          <section class="scene-six" id="scene-six" aria-label="Build your journey">
+            <div class="scene-six__glow" aria-hidden="true"></div>
+            <div class="scene-six__intro" id="builder-intro" aria-hidden="true">
+              <h2>LET'S <em>FIND OUT.</em></h2>
+              <p>Tell us a little about where you want to go.<br />We'll turn it into a starting point.</p>
+            </div>
+            <div class="scene-six__question" id="builder-question" tabindex="-1" data-scroll-region aria-hidden="true">
+              <div class="scene-six__progress" id="builder-progress" aria-label="Journey profile progress"><span></span><i></i><span></span><i></i><span></span><i></i><span></span><i></i><span></span></div>
+              <p class="scene-six__kicker" id="builder-kicker">01 / 05 · YOUR STUDY LEVEL</p>
+              <h2 id="builder-headline">WHICH STUDY LEVEL<br />FITS YOUR PLANS?</h2>
+              <p class="scene-six__support" id="builder-support">Choose the stage that feels closest right now.</p>
+              <div class="scene-six__choices" id="builder-choices" data-scroll-region></div>
+              <div class="scene-six__country" id="builder-country-wrap" hidden>
+                <label for="builder-country">COUNTRY</label><input id="builder-country" maxlength="60" type="text" autocomplete="country-name" placeholder="Type a country" />
+                <button id="builder-country-continue" type="button">CONTINUE →</button>
+              </div>
+              <div class="scene-six__question-actions">
+                <button class="scene-six__back" id="builder-back" type="button">← BACK</button>
+                <button class="scene-six__skip-profile" id="builder-skip-profile" type="button">SKIP FOR NOW →</button>
+              </div>
+            </div>
+            <ol class="scene-six__answers" id="builder-answers" aria-label="Your journey choices">
+              <li><small>LEVEL</small><strong>—</strong></li><li><small>FIELD</small><strong>—</strong></li>
+              <li><small>REGION</small><strong>—</strong></li><li><small>PRIORITY</small><strong>—</strong></li>
+              <li><small>BUDGET</small><strong>—</strong></li>
+            </ol>
+            <div class="scene-six__filter" id="builder-filter" aria-hidden="true"><span>FROM EVERYWHERE</span><strong>TO SOMEWHERE THAT FITS YOU.</strong><small>ILLUSTRATIVE FILTERING · NOT UNIVERSITY RECOMMENDATIONS</small></div>
+            <div class="scene-six__result" id="builder-result" data-scroll-region aria-hidden="true">
+              <p>YOUR JOURNEY</p><h2>IS STARTING TO<br /><em>TAKE SHAPE.</em></h2>
+              <small>We can turn this starting point into a real university strategy.</small>
+              <ul id="builder-summary"></ul>
+              <div class="scene-six__result-actions"><button id="builder-contact-open" type="button">SHOW ME MY REAL OPTIONS →</button><button id="builder-edit" type="button">EDIT MY JOURNEY</button></div>
+            </div>
+            <div class="scene-six__contact" id="builder-contact" data-scroll-region aria-hidden="true">
+              <p>WANT TO SEE YOUR REAL OPTIONS?</p>
+              <h2>CONTINUE YOUR<br /><em>JOURNEY.</em></h2>
+              <small>Leave your details and a consultant can review this profile and prepare realistic university options.</small>
+              <form id="lead-form" novalidate>
+                <label class="form-honeypot" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off" /></label>
+                <label>NAME<input id="lead-name" name="name" autocomplete="name" required /></label>
+                <fieldset><legend>HOW SHOULD WE CONTACT YOU?</legend>
+                  <button type="button" data-contact-method="WhatsApp" aria-pressed="true">WHATSAPP</button>
+                  <button type="button" data-contact-method="Telegram" aria-pressed="false">TELEGRAM</button>
+                  <button type="button" data-contact-method="Phone" aria-pressed="false">PHONE</button>
+                  <button type="button" data-contact-method="Email" aria-pressed="false">EMAIL</button>
+                </fieldset>
+                <label><span id="lead-contact-label">WHATSAPP</span><input id="lead-contact" name="contact" autocomplete="tel" placeholder="Your number" required /></label>
+                <p class="scene-six__privacy" id="privacy-note">We'll only use your details to contact you about your study options. <a href="/privacy.html" target="_blank" rel="noopener">Privacy policy</a></p>
+                <p class="scene-six__form-status" id="lead-status" role="status" aria-live="polite"></p>
+                <div class="scene-six__form-actions"><button id="lead-submit" type="submit">CONTINUE MY JOURNEY →</button><button id="lead-skip" type="button">EXPLORE WITHOUT SUBMITTING →</button><button id="lead-back" type="button">← BACK TO MY JOURNEY</button></div>
+              </form>
+            </div>
+            <div class="scene-six__success" id="builder-success" aria-hidden="true">
+              <p>PROFILE RECEIVED ✓</p><h2 id="builder-success-title">YOUR JOURNEY<br /><em>HAS STARTED.</em></h2><small id="builder-success-copy">We'll review your profile and continue from here.</small>
+            </div>
+            <div class="scene-six__next" id="builder-next">YOUR PATH CONTINUES <span>06 / 09 &nbsp; A NEW PLACE</span></div>
+          </section>
+          <section class="scene-seven" id="scene-seven" aria-label="This could be your life: a photographic story of studying in Trondheim" aria-hidden="true">
+            <figure class="photo-portal" id="photo-portal"><img data-photo="hero" alt="The historic NTNU Gløshaugen campus in Trondheim" /><figcaption data-credit="hero"></figcaption></figure>
+
+            <article class="photo-stage photo-stage--hero" id="photo-hero">
+              <img data-photo="hero" alt="NTNU Gløshaugen campus in Trondheim, Norway" />
+              <div class="photo-shade photo-shade--left"></div><span class="photo-credit" data-credit="hero"></span>
+              <p class="photo-place" data-beat data-start=".105" data-end=".21">ONE POSSIBLE DESTINATION · TRONDHEIM, NORWAY</p>
+              <h2 class="photo-headline" data-beat data-start=".125" data-end=".205">IMAGINE<br />CALLING THIS<br /><em>HOME.</em></h2>
+            </article>
+
+            <article class="photo-stage photo-stage--study" id="photo-study">
+              <div class="study-split study-split--left"><img data-photo="hero" alt="NTNU campus exterior" /></div>
+              <div class="study-split study-split--right"><img data-photo="hero" alt="NTNU campus exterior" /></div>
+              <img class="study-main" data-photo="study" alt="Students studying together in a modern library" />
+              <div class="photo-shade photo-shade--right"></div><span class="photo-credit" data-credit="study"></span>
+              <p class="photo-place photo-place--right" data-beat data-start=".29" data-end=".34">A PLACE TO STUDY.</p>
+              <h2 class="photo-headline photo-headline--right" data-beat data-start=".315" data-end=".385">BUT UNIVERSITY<br />BECOMES MUCH MORE<br />THAN A <em>CLASSROOM.</em></h2>
+            </article>
+
+            <article class="photo-stage photo-stage--people" id="photo-people">
+              <img data-photo="people" alt="University students walking and talking together" />
+              <div class="photo-shade photo-shade--left"></div><span class="photo-credit" data-credit="people"></span>
+              <p class="people-copy" data-beat data-start=".385" data-end=".465">NEW PEOPLE.<br />NEW PERSPECTIVES.</p>
+            </article>
+
+            <article class="photo-stage photo-collage" id="photo-collage">
+              <figure class="collage-main"><img data-photo="people" alt="Students spending time together" /><figcaption>TOGETHER</figcaption></figure>
+              <figure class="collage-top"><img data-photo="hero" alt="University campus" /><figcaption>CAMPUS</figcaption></figure>
+              <figure class="collage-bottom"><img data-photo="city" alt="Trondheim waterfront" /><figcaption>THE CITY</figcaption></figure>
+              <figure class="collage-small"><img data-photo="detail" alt="Students walking outdoors" /><figcaption>EVERYDAY LIFE</figcaption></figure>
+            </article>
+
+            <article class="photo-stage photo-stage--city" id="photo-city">
+              <img data-photo="city" alt="The colorful Nidelva waterfront in Trondheim" /><div class="photo-shade photo-shade--left"></div><span class="photo-credit" data-credit="city"></span>
+              <h2 class="city-copy" data-beat data-start=".53" data-end=".565">YOU DON'T JUST<br />CHOOSE A UNIVERSITY.</h2>
+              <h2 class="city-copy city-copy--second" data-beat data-start=".562" data-end=".605">YOU CHOOSE<br /><em>A LIFE AROUND IT.</em></h2>
+            </article>
+
+            <article class="photo-stage photo-stage--landscape" id="photo-landscape">
+              <img data-photo="landscape" alt="A vast Norwegian fjord landscape" /><span class="photo-credit" data-credit="landscape"></span>
+              <p class="landscape-copy" data-beat data-start=".61" data-end=".68">AND SOMETIMES<br />YOUR WEEKEND<br />LOOKS LIKE THIS.</p>
+            </article>
+
+            <article class="photo-stage photo-seasons" id="photo-seasons">
+              <div class="season season--autumn"><img data-photo="autumn" alt="Norwegian landscape in a warmer season" /></div>
+              <div class="season season--winter"><img data-photo="winter" alt="A snowy road near Trondheim student housing" /></div>
+              <span class="season-divider"></span><span class="photo-credit" data-credit="season"></span>
+              <h2 data-beat data-start=".68" data-end=".745">YOU WATCH<br />A NEW PLACE<br /><em>BECOME FAMILIAR.</em></h2>
+            </article>
+
+            <article class="photo-stage photo-mosaic" id="photo-mosaic">
+              <figure><img data-photo="study" alt="A quiet study moment" /></figure><figure><img data-photo="detail" alt="Students outdoors" /></figure>
+              <figure><img data-photo="city" alt="An evening in Trondheim" /></figure><figure><img data-photo="winter" alt="Winter in Trondheim" /></figure>
+              <figure><img data-photo="people" alt="Students together" /></figure><figure><img data-photo="hero" alt="NTNU campus" /></figure>
+              <p data-beat data-start=".745" data-end=".79">SOMEWHERE ALONG THE WAY...</p>
+              <h2 data-beat data-start=".785" data-end=".835">IT STOPS FEELING<br />LIKE “ABROAD.”</h2>
+            </article>
+
+            <article class="photo-stage photo-stage--life" id="photo-life">
+              <img data-photo="people" alt="Students walking together through campus" /><div class="photo-shade photo-shade--left"></div><span class="photo-credit" data-credit="people"></span>
+              <h2 data-beat data-start=".845" data-end=".91">IT JUST FEELS<br />LIKE <em>YOUR LIFE.</em></h2>
+            </article>
+
+            <article class="photo-stage photo-callback" id="photo-callback">
+              <img data-photo="hero" alt="NTNU campus in Trondheim" /><div class="photo-shade photo-shade--left"></div>
+              <h2><span>YOUR FUTURE</span><small>ONE POSSIBLE CHAPTER.</small><strong>COULD LOOK<br />LIKE THIS.</strong></h2>
+              <span class="photo-credit" data-credit="hero"></span>
+            </article>
+
+            <article class="photo-stage photo-finale" id="photo-finale">
+              <div class="filmstrip" aria-hidden="true"><img data-photo="hero" alt="" /><img data-photo="study" alt="" /><img data-photo="people" alt="" /><img data-photo="city" alt="" /><img data-photo="landscape" alt="" /><img data-photo="winter" alt="" /></div>
+              <div class="final-proof"><span>A REAL CAMPUS.</span><span>A REAL CITY.</span><strong>A REAL PLACE.</strong><small>And one possible chapter of your own story.</small></div>
+              <div class="university-id"><b data-university>NTNU</b><span data-university-full>Norwegian University of Science and Technology</span><small data-location>Trondheim, Norway</small><em>Illustrative study destination · No partnership or admission guarantee implied</em></div>
+              <i class="returning-line"></i><div class="scene-seven__next">07 / 09</div>
+            </article>
+          </section>
+          <section class="scene-eight" id="scene-eight" aria-label="Behind every journey: the research, documents and people behind a realistic study plan" aria-hidden="true">
+
+            <article class="behind-opening" data-behind-beat data-start=".005" data-end=".175">
+              <div class="behind-opening__spread" aria-hidden="true">
+                <figure><img data-behind-photo="hero" alt="" /></figure><figure><img data-behind-photo="review" alt="" /></figure><figure><img data-behind-photo="office" alt="" /></figure>
+              </div>
+              <h2 data-behind-beat data-start=".018" data-end=".09">IT CAN LOOK<br />EFFORTLESS<br /><em>FROM HERE.</em></h2>
+              <div class="behind-opening__papers" aria-hidden="true"><i>SHORTLIST</i><i>TRANSCRIPT</i><i>DEADLINES</i><i>CHECKLIST</i></div>
+              <p data-behind-beat data-start=".095" data-end=".145">BUT THIS PART...</p>
+              <strong data-behind-beat data-start=".128" data-end=".175">TAKES WORK.</strong>
+            </article>
+
+            <article class="editorial-desk" data-behind-beat data-start=".13" data-end=".615">
+              <div class="desk-object desk-profile">
+                <small>STUDENT PROFILE · FICTIONAL SAMPLE</small><h3>ALEX KARIMOV</h3>
+                <dl><div><dt>LEVEL</dt><dd>Bachelor's</dd></div><div><dt>FIELD</dt><dd>Computer Science</dd></div><div><dt>PRIORITY</dt><dd>Scholarship</dd></div><div><dt>STATUS</dt><dd>Planning</dd></div></dl>
+              </div>
+              <div class="desk-object desk-passport"><b>PASSPORT COPY</b><span>FICTIONAL · DETAILS REDACTED</span><i></i></div>
+              <div class="desk-object desk-transcript"><b>ACADEMIC TRANSCRIPT</b><span>FICTIONAL SAMPLE</span><i></i><i></i><i></i><i></i></div>
+              <div class="desk-object desk-note">check scholarship</div>
+              <div class="desk-object desk-calendar"><small>APPLICATION DEADLINE · FICTIONAL</small><b>15</b><span>JAN</span></div>
+              <div class="desk-guiding-line" aria-hidden="true"><i></i><span>PROFILE</span><span>CRITERIA</span><span>SHORTLIST</span></div>
+
+              <section class="research-work" aria-label="Illustrative university research and shortlisting">
+                <header data-behind-beat data-start=".16" data-end=".30"><span>FIRST:</span><h2>FIND THE<br /><em>RIGHT OPTIONS.</em></h2><small>Illustrative research sheets · no admission data shown</small></header>
+                <div class="university-stack">
+                  <article class="university-sheet"><small>10 / POSSIBLE</small><b>UNIVERSITY 10</b><p>PROGRAM <span>TO VERIFY</span></p></article>
+                  <article class="university-sheet"><small>09 / POSSIBLE</small><b>UNIVERSITY 09</b><p>TUITION <span>TO VERIFY</span></p></article>
+                  <article class="university-sheet"><small>08 / POSSIBLE</small><b>UNIVERSITY 08</b><p>LANGUAGE <span>TO VERIFY</span></p></article>
+                  <article class="university-sheet"><small>07 / POSSIBLE</small><b>UNIVERSITY 07</b><p>DEADLINE <span>TO VERIFY</span></p></article>
+                  <article class="university-sheet"><small>06 / POSSIBLE</small><b>UNIVERSITY 06</b><p>BUDGET <span>CHECK</span></p></article>
+                  <article class="university-sheet"><small>05 / POSSIBLE</small><b>UNIVERSITY 05</b><p>PROGRAM <span>GOOD FIT?</span></p></article>
+                  <article class="university-sheet"><small>04 / REVIEW</small><b>UNIVERSITY 04</b><p>SCHOLARSHIP <span>CHECK</span></p></article>
+                  <article class="university-sheet"><small>03 / SHORTLIST</small><b>UNIVERSITY 03</b><p>REQUIREMENTS <span>REVIEWED</span></p></article>
+                  <article class="university-sheet"><small>02 / SHORTLIST</small><b>UNIVERSITY 02</b><p>PROGRAM FIT <span>REVIEWED</span></p></article>
+                  <article class="university-sheet"><small>01 / SHORTLIST</small><b>UNIVERSITY 01</b><p>BUDGET FIT <span>REVIEWED</span></p></article>
+                </div>
+                <p class="research-focus" data-behind-beat data-start=".325" data-end=".415">RESEARCH<br /><em>CREATES FOCUS.</em><span>10 → 6 → 4 → 3</span></p>
+              </section>
+
+              <section class="draft-work" aria-label="Illustrative motivation letter editing">
+                <header data-behind-beat data-start=".415" data-end=".52"><span>THEN:</span><h2>MAKE THE<br />APPLICATION <em>STRONG.</em></h2></header>
+                <div class="draft-pages" aria-label="Draft one, draft two, final"><article><small>DRAFT 01</small><p>I am applying because <s>this university is very good</s> <u>the program connects to my goal in software engineering.</u></p><i>be specific</i></article><article><small>DRAFT 02</small><p>My coursework gave me a foundation in programming. <u>The next sentence should show evidence.</u></p><i>add example</i></article><article><small>FINAL</small><p>Clear purpose. Specific evidence. A direct connection between the student and the program.</p><b>REVISED ✓</b></article></div>
+                <p class="draft-caption">GOOD APPLICATIONS<br />RARELY START AS<br />FINAL DRAFTS.</p>
+              </section>
+
+              <section class="detail-work" aria-label="Illustrative application checklist">
+                <h2 data-behind-beat data-start=".515" data-end=".615">AND EVERYTHING<br /><em>HAS A DEADLINE.</em></h2>
+                <div class="application-checklist"><small>APPLICATION CHECKLIST · FICTIONAL SAMPLE</small><ul><li>PERSONAL INFORMATION <b>✓</b></li><li>EDUCATION <b>✓</b></li><li>LANGUAGE CERTIFICATE <b>✓</b></li><li>MOTIVATION LETTER <b>✓</b></li><li class="check-alert">SCHOLARSHIP FORM <b><span>!</span><i>✓</i></b></li><li>FINAL REVIEW <b>✓</b></li></ul></div>
+                <ol class="deadline-line"><li>DOCUMENTS</li><li>REVIEW</li><li>APPLICATION</li><li>SCHOLARSHIP</li><li>SUBMISSION</li></ol>
+              </section>
+            </article>
+
+            <article class="human-reveal" data-behind-beat data-start=".595" data-end=".72">
+              <figure><img data-behind-photo="consultation" alt="Two people reviewing a plan during a meeting; licensed development placeholder photography" /><figcaption>ILLUSTRATIVE PHOTOGRAPHY · PHOTO: HEADWAY / UNSPLASH</figcaption></figure>
+              <h2 data-behind-beat data-start=".615" data-end=".67">BUT DOCUMENTS<br />DON'T MAKE<br /><em>DECISIONS.</em></h2>
+              <strong data-behind-beat data-start=".665" data-end=".715">PEOPLE DO.</strong>
+            </article>
+
+            <section class="team-reveal" id="behind-team" aria-label="Development placeholders for the Nord Consult team"></section>
+
+            <article class="consultation-plan" data-behind-beat data-start=".785" data-end=".895">
+              <figure><img data-behind-photo="review" alt="People reviewing documents together; licensed development placeholder photography" /><figcaption>ILLUSTRATIVE PHOTOGRAPHY · PHOTO: OLENA KHOLINA / UNSPLASH</figcaption></figure>
+              <div class="brand-statement" data-behind-beat data-start=".82" data-end=".90"><p>YOUR GOALS. YOUR CIRCUMSTANCES.</p><h2>A PLAN THAT<br /><em>MAKES SENSE FOR YOU.</em></h2></div>
+            </article>
+
+            <article class="process-proof" data-behind-beat data-start=".875" data-end=".947">
+              <div class="proof-pair"><div><small>THE WORK</small><b>RESEARCH<br />DOCUMENTS<br />REVIEW</b></div><figure><img data-behind-photo="hero" alt="NTNU Gløshaugen campus, used as an illustrative destination" /></figure></div>
+              <ol class="process-recap"><li>STUDENT PROFILE</li><li>RESEARCH</li><li>SHORTLIST</li><li>DOCUMENTS</li><li>REVIEW</li><li>APPLICATION</li><li>ADMISSION</li><li>ARRIVAL</li></ol>
+            </article>
+
+            <article class="behind-brand" data-behind-beat data-start=".93" data-end=".978">
+              <div class="behind-brand__logo"><b>N<span>✦</span></b><strong>NORD<em>CONSULT</em></strong></div>
+              <h2>FROM “WHERE DO I START?”<br /><em>TO “I'M HERE.”</em></h2><p>One journey.<br />One clear plan.<br />Real people helping you through it.</p>
+            </article>
+
+            <article class="journey-return" data-behind-beat data-start=".965" data-end="2">
+              <img data-behind-photo="hero" alt="NTNU Gløshaugen campus in Trondheim behind the visitor's journey profile" />
+              <div class="journey-return__shade"></div><div class="journey-profile"><p>YOUR JOURNEY</p><ul id="behind-profile-list"><li class="journey-profile__empty">NOT DEFINED YET</li></ul></div>
+              <div class="journey-question"><p>YOU'VE SEEN<br />WHAT IT COULD LOOK LIKE.</p><h2>READY TO FIND OUT<br /><em>WHAT'S REALISTIC FOR YOU?</em></h2></div>
+            </article>
+          </section>
+          <section class="scene-nine" id="scene-nine" aria-label="Your story starts here" aria-hidden="true">
+            <figure class="scene-nine__memory" aria-hidden="true"><img id="final-campus-photo" alt="" /></figure>
+
+            <div class="scene-nine__transition" id="final-transition">
+              <p>YOU'VE SEEN<br />THE JOURNEY.</p>
+              <h2>NOW LET'S TALK<br /><em>ABOUT YOURS.</em></h2>
+            </div>
+
+            <div class="scene-nine__line" aria-hidden="true"><i></i><b></b><span>YOUR FIRST CONVERSATION</span></div>
+
+            <div class="final-profile" id="final-profile">
+              <p>YOUR JOURNEY</p>
+              <ul id="final-profile-list"><li class="final-profile__empty"><strong>STILL UNWRITTEN.</strong><small>That's completely fine.<br />We can start there.</small></li></ul>
+            </div>
+
+            <div class="final-passport" id="final-passport" aria-label="A fictional journey passport showing the visitor's study profile">
+              <div class="final-passport__cover"><span>N<span>✦</span></span><b>JOURNEY<br />PASSPORT</b><small>NORD CONSULT</small></div>
+              <div class="final-passport__page">
+                <p>STUDENT JOURNEY</p>
+                <dl id="final-passport-fields"></dl>
+                <div class="final-passport__status"><span>STATUS</span><strong id="final-passport-status">READY TO BEGIN</strong><small id="final-passport-date"></small></div>
+              </div>
+            </div>
+
+            <div class="scene-nine__headline" id="final-headline">
+              <p>EVERY JOURNEY<br />STARTS <em>SOMEWHERE.</em></p>
+              <h2>YOURS CAN<br /><em>START HERE.</em></h2>
+            </div>
+
+            <div class="final-action" id="final-action">
+              <button id="final-cta" type="button">START MY JOURNEY <span>→</span></button>
+              <i aria-hidden="true"></i><b aria-hidden="true"></b>
+              <small>We'll only use your details to contact you about your study plans. <a href="/privacy.html" target="_blank" rel="noopener">Privacy policy</a></small>
+            </div>
+
+            <section class="final-contact" id="final-contact" data-scroll-region role="dialog" aria-modal="true" aria-label="Start a conversation" aria-labelledby="final-contact-title" aria-hidden="true">
+              <button class="final-contact__close" id="final-contact-close" type="button" aria-label="Close contact form">✕</button>
+              <div class="final-contact__summary"><p>YOUR STARTING POINT</p><ul id="final-contact-summary"></ul><button id="final-edit-profile" type="button">EDIT PROFILE</button></div>
+              <div class="final-contact__form">
+                <p>YOUR FIRST CONVERSATION</p>
+                <h2 id="final-contact-title">LET'S CONTINUE<br /><em>YOUR JOURNEY.</em></h2>
+                <small>We'll use your profile to understand what you're looking for before we speak.</small>
+                <form id="final-lead-form" novalidate>
+                  <label class="form-honeypot" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off" /></label>
+                  <label for="final-lead-name">YOUR NAME</label><input id="final-lead-name" name="name" autocomplete="name" required />
+                  <fieldset><legend>HOW SHOULD WE CONTACT YOU?</legend>
+                    <button type="button" data-final-method="WhatsApp" aria-pressed="true">WHATSAPP</button>
+                    <button type="button" data-final-method="Telegram" aria-pressed="false">TELEGRAM</button>
+                    <button type="button" data-final-method="Phone" aria-pressed="false">PHONE</button>
+                    <button type="button" data-final-method="Email" aria-pressed="false">EMAIL</button>
+                  </fieldset>
+                  <label for="final-lead-contact" id="final-lead-contact-label">WHATSAPP NUMBER</label><input id="final-lead-contact" name="contact" type="tel" inputmode="tel" autocomplete="tel" placeholder="+358 40 123 4567" required />
+                  <label for="final-lead-message">ANYTHING YOU'D LIKE US TO KNOW? <span>OPTIONAL</span></label><textarea id="final-lead-message" name="message" rows="3"></textarea>
+                  <p class="final-contact__privacy">We'll only use your details to contact you about your study plans. <a href="/privacy.html" target="_blank" rel="noopener">Privacy policy</a></p>
+                  <p class="final-contact__status" id="final-lead-status" role="status" aria-live="polite"></p>
+                  <button class="final-contact__submit" id="final-lead-submit" type="submit">CONTINUE MY JOURNEY <span>→</span></button>
+                </form>
+              </div>
+            </section>
+
+            <div class="final-success" id="final-success" aria-hidden="true"><p>PROFILE RECEIVED <span>✓</span></p><h2>YOUR JOURNEY<br /><em>HAS STARTED.</em></h2><small>We'll review what you've shared and continue from here.</small></div>
+
+            <div class="scene-nine__closing" id="final-closing">
+              <p><span>ONE QUESTION.</span><span>ONE DECISION.</span><span>ONE FIRST STEP.</span></p>
+              <h2>WHERE WILL<br />YOUR STORY <em>GO?</em></h2>
+              <button id="final-closing-cta" type="button">START MY JOURNEY →</button>
+              <a href="#site-footer">CONTINUE EXPLORING ↓</a>
+            </div>
+          </section>
+          <a class="scene-four__skip" id="roadmap-skip" href="#build-start">Skip journey <span aria-hidden="true">→</span></a>
+          <div class="destination-hotspots" id="destination-hotspots" aria-label="Explore destinations"></div>
+          <div class="destination-panel" id="destination-panel" role="status"><span id="panel-name">FINLAND</span><small id="panel-city">HELSINKI</small><p id="panel-info">Explore universities</p><span id="panel-tag">English-taught programs</span><span class="destination-panel__explore">ILLUSTRATIVE DESTINATION</span></div>
+
+          <div class="scene__footer">
+            <div class="chapter"><span class="chapter__count"><span id="chapter-number">01</span><span class="chapter__rule"></span>09</span><span class="chapter__name">THE DECISION</span></div>
+            <div class="scroll-cue" id="scroll-cue"><span>SCROLL TO BEGIN</span><span class="scroll-cue__track"><span></span></span></div>
+            <span class="footer-note">EST. FOR THE JOURNEY AHEAD</span>
+          </div>
+        </div>
+        <span id="opening" class="opening-anchor" aria-hidden="true"></span>
+        <span id="destinations" class="destinations-anchor" aria-hidden="true"></span>
+        <span id="roadmap-start" class="roadmap-anchor" aria-hidden="true"></span>
+        <span id="build-start" class="builder-anchor" aria-hidden="true"></span>
+        <span id="arrival-start" class="arrival-anchor" aria-hidden="true"></span>
+        <span id="behind-start" class="behind-anchor" aria-hidden="true"></span>
+        <span id="story-start" class="story-start-anchor" aria-hidden="true"></span>
+        <span id="journey-end" class="ending-anchor" aria-hidden="true"></span>
+      </main>
+      <footer class="site-footer" id="site-footer">
+        <a class="site-footer__brand" href="#decision" aria-label="Nord Consult home"><span>N<span>✦</span></span><strong>NORD<small>CONSULT</small></strong></a>
+        <nav aria-label="Practical navigation"><a href="#destinations">Destinations</a><a href="#roadmap-start">How it works</a><a href="#behind-start">About</a><a href="#story-start">Contact</a><a href="/privacy.html">Privacy</a></nav>
+        <p>YOUR FUTURE DOESN'T HAVE TO STAY A QUESTION.</p>
+        <small>© <span id="footer-year"></span> NORD CONSULT</small>
+      </footer>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
