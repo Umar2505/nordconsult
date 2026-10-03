@@ -268,17 +268,20 @@ export function createStories(scene, roadmap, chaos) {
     }
 
     const drawConnector = smooth(.025, .16, p);
-    connector.material.opacity = .72 * drawConnector * (1 - smooth(.31, .49, p));
+    connector.material.opacity = .72 * drawConnector * (1 - smooth(mobile ? .24 : .31, mobile ? .32 : .49, p));
     connector.geometry.setDrawRange(0, Math.max(2, Math.floor(connectorPoints.length * drawConnector)));
     connectorLight.position.copy(connectorCurve.getPoint(drawConnector));
     connectorLight.material.opacity = reduced ? 0 : .95 * smooth(.035, .07, p) * (1 - smooth(.18, .28, p));
-    alexLine.material.opacity = .72 * smooth(.10, .20, p) * (1 - smooth(.62, .72, p));
+    alexLine.material.opacity = .72 * smooth(.10, .20, p) * (1 - smooth(mobile ? .27 : .62, mobile ? .34 : .72, p));
     alexLine.geometry.setDrawRange(0, Math.floor(alexCurve.length * smooth(.10, .23, p)));
 
     const globeReveal = smooth(.14, .29, p);
     const recede = smooth(.83, .98, p);
     sphere.material.opacity = .31 * globeReveal * (1 - recede * .45);
     atmosphere.material.opacity = .11 * globeReveal * (1 - recede * .6);
+    const storyFraming = mobile ? smooth(.27, .31, p) * (1 - smooth(.63, .68, p)) : 0;
+    root.scale.setScalar(1 - .4 * storyFraming);
+    root.position.set(center.x + 1.6 * storyFraming, center.y + 1.6 * storyFraming, center.z);
     root.rotation.x = .24;
     root.rotation.y = -.42 + (reduced ? 0 : .045 * smooth(.65, .82, p) * Math.sin(time * .22));
 
@@ -299,7 +302,7 @@ export function createStories(scene, roadmap, chaos) {
       const reveal = smooth(.195 + i * .026, .30 + i * .02, p);
       const active = activeIndex === i && storyOpacity > .02;
       const hovered = hoverIndex === i && p > .24 && p < .77;
-      const opacity = reveal * (active ? .98 : hovered ? .86 : .12) * (1 - recede * .37);
+      const opacity = reveal * (active ? .98 : hovered ? .86 : mobile && activeIndex >= 0 ? 0 : .12) * (1 - recede * .37);
       record.path.material.opacity = opacity;
       record.path.geometry.setDrawRange(0, Math.max(2, Math.floor(record.points.length * reveal)));
       record.origin.material.opacity = reveal * (active ? .9 : .28);
@@ -344,7 +347,7 @@ export function createStories(scene, roadmap, chaos) {
       const marker = routeRecords[i].destination;
       const point = marker.getWorldPosition(new THREE.Vector3()).project(camera);
       const onScreen = point.z < 1 && point.x > -.9 && point.x < .9 && point.y > -.85 && point.y < .85;
-      const enabled = nextProgress < .001 && p > .25 && p < .77 && onScreen;
+      const enabled = nextProgress < .001 && p > .25 && p < .77 && onScreen && (!mobile || storyOpacity < .02);
       button.hidden = !enabled; button.tabIndex = enabled ? 0 : -1;
       if (enabled) {
         button.style.left = `${(point.x + 1) * innerWidth / 2}px`;

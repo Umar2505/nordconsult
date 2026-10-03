@@ -539,3 +539,46 @@ html[lang="uz"] .scene-four__opening h2,html[lang="ru"] .scene-four__opening h2{
 .scene-five__story a{display:inline-block;margin-top:13px;color:#e1c995;font:600 9px/1.4 "DM Sans",sans-serif;letter-spacing:.12em;text-decoration:none;border-bottom:1px solid #b79f71;padding-bottom:3px}
 .scene-five__story a:hover,.scene-five__story a:focus-visible{color:#fff3d5;border-color:#fff3d5}
 @media(max-width:700px){.scene-five__portrait{width:95px;height:78px}.scene-five__story h2{font-size:clamp(28px,8vw,46px)}.scene-five__story a{font-size:7px}}
+
+/* Keep roadmap details in a stable reading area on phones. */
+.scene-four__countries,.scene-four__program,.scene-four__documents{display:none}
+.scene-four__visa-track{left:6vw;top:calc(30vh + 100px);width:min(420px,42vw);color:#ddd4c0;text-shadow:0 3px 20px #091619}
+.scene-four__visa-track>small,.scene-four__countries>small,.scene-four__program>small,.scene-four__documents>small{display:block;color:#d2bd94;font-size:10px;font-weight:600;letter-spacing:.17em}
+.scene-four__visa-track ol{list-style:none;margin:13px 0 0;padding:0;border-top:1px solid rgba(211,190,151,.47)}
+.scene-four__visa-track li{display:flex;align-items:center;gap:15px;min-height:31px;border-bottom:1px solid rgba(211,190,151,.22);font-size:12px;font-weight:600;letter-spacing:.08em}
+.scene-four__visa-track li span{color:#d2bd94;font-size:10px;font-weight:500}
+@media(max-width:700px){
+ .scene-four__countries,.scene-four__program,.scene-four__documents{display:block;left:6vw;right:6vw;width:88vw;text-shadow:0 3px 18px #091619}
+ .scene-four__countries{top:calc(17vh + 185px);border-top:1px solid rgba(211,190,151,.48);padding-top:7px}
+ .scene-four__countries>small,.scene-four__program>small,.scene-four__documents>small{font-size:9px}
+ .scene-four__countries>div{display:flex;justify-content:space-between;gap:8px;margin-top:7px}
+ .scene-four__countries>div span{color:#ece4d3;font-size:14px;font-weight:600;letter-spacing:.02em}
+ .scene-four__countries p{color:#b9c9c1;font-size:11px;line-height:1.35;margin:7px 0 0}
+ .scene-four__program{top:calc(17vh + 190px);border-left:2px solid #d3b784;background:linear-gradient(90deg,rgba(9,25,29,.83),transparent);padding:7px 0 9px 12px}
+ .scene-four__program strong,.scene-four__program span{display:block}
+ .scene-four__program strong{font-size:14px;line-height:1.2;margin-top:8px;color:#eee5d6}
+ .scene-four__program span{font-size:11px;line-height:1.35;margin-top:5px;color:#b9c9c1}
+ .scene-four__documents{top:calc(17vh + 165px);border-top:1px solid rgba(211,190,151,.48);padding-top:7px}
+ .scene-four__documents>div{display:grid;grid-template-columns:1fr 1fr;gap:6px 15px;margin-top:9px}
+ .scene-four__documents span{color:#e2ded2;font-size:11px;letter-spacing:.04em}
+ .scene-four__documents span:before{content:'✓';color:#d3b784;margin-right:7px}
+ .scene-four__visa-track{top:calc(24vh + 76px);width:88vw}
+ .scene-four__visa-track>small{display:none}
+ .scene-four__visa-track ol{margin-top:0}
+ .scene-four__visa-track li{min-height:25px;font-size:11px}
+}
+
+/* Give published stories a clear card and keep the globe above them on phones. */
+@media(max-width:700px){
+ .scene-five__story,.scene-five__story.is-alternate{left:6vw;right:6vw;bottom:11vh;display:block;max-height:43vh;overflow-y:auto;padding:14px 14px 16px;border:1px solid rgba(214,190,149,.43);border-top:2px solid #d6be91;background:rgba(7,19,23,.95);box-shadow:0 16px 48px rgba(0,0,0,.37)}
+ .scene-five__story-top{display:block;font-size:9px;line-height:1.3}
+ .scene-five__story-top span:last-child{display:block;margin-top:3px;font-size:8px;line-height:1.3}
+ .scene-five__story h2{font-size:clamp(29px,8vw,39px);line-height:.94;margin:9px 0 9px;max-width:100%}
+ .scene-five__story-rule{margin-bottom:8px}
+ .scene-five__story .scene-five__story-route{font-size:9px;line-height:1.35;margin-bottom:10px;max-width:100%}
+ .scene-five__story p:not(.scene-five__story-route){font-size:11px;line-height:1.3;margin:5px 0;max-width:calc(100% - 104px)}
+ .scene-five__story strong{font-size:9px;line-height:1.3;margin-top:7px;max-width:calc(100% - 104px)}
+ .scene-five__story a{font-size:9px;line-height:1.3;margin-top:9px;max-width:calc(100% - 104px)}
+ .scene-five__portrait{position:absolute;right:14px;bottom:16px;width:96px;height:76px}
+ .scene-five__portrait img{object-fit:contain}
+}

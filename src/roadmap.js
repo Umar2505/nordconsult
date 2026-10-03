@@ -368,6 +368,8 @@ export function createRoadmap(scene, chaos) {
       if (mobile) {
         ahead.copy(route.getPoint(Math.min(.99, travel + .022))).add(new THREE.Vector3(.25, .85, .35));
         cameraTarget.addScaledVector(tangent, -1.4);
+        const compactFraming = clamp((700 - innerHeight) / 105) * smooth(.19, .23, p) * (1 - smooth(.52, .55, p));
+        ahead.y += .85 * compactFraming;
       }
       const previousLook = new THREE.Vector3(.9, 6.8, 0);
       camera.position.lerp(cameraTarget, alignment);
@@ -438,14 +440,7 @@ export function createRoadmap(scene, chaos) {
       sprite.material.opacity = active * (1 - smooth(.295, .33, p)) * (i === 0 ? 1 : 1 - .84 * selection);
       info.material.opacity = sprite.material.opacity * .64;
       const visible = i < (mobile ? 3 : 6);
-      path.visible = sprite.visible = info.visible = visible && active > .01;
-      if (mobile && visible) {
-        const right = new THREE.Vector3(1, 0, 0).applyQuaternion(camera.quaternion);
-        const up = new THREE.Vector3(0, 1, 0).applyQuaternion(camera.quaternion);
-        sprite.position.copy(chaos.student.position).addScaledVector(right, (i - 1) * .85).addScaledVector(up, 1.8 + (i === 1 ? .35 : 0));
-        info.position.copy(sprite.position).addScaledVector(up, -.25);
-        path.visible = false;
-      }
+      path.visible = sprite.visible = info.visible = visible && active > .01 && !mobile;
     });
     const universityShow = smooth(.285, .32, p) * (1 - smooth(.4, .435, p));
     universityDots.visible = universityShow > .01;
@@ -461,6 +456,7 @@ export function createRoadmap(scene, chaos) {
     architecture.scale.setScalar(smooth(.355, .395, p) * (1 - smooth(.405, .43, p)));
     universityInfo.material.opacity = smooth(.365, .39, p) * (1 - smooth(.405, .43, p));
     universityDetails.material.opacity = universityInfo.material.opacity * .72;
+    universityInfo.visible = universityDetails.visible = !mobile;
 
     documents.forEach(({ mesh, check, initial }, i) => {
       const enter = smooth(.405 + i * .007, .44 + i * .007, p);
@@ -469,6 +465,7 @@ export function createRoadmap(scene, chaos) {
       mesh.visible = enter > .01 && p < .535 && (!mobile || i < 4);
       mesh.material.opacity = enter * (1 - smooth(.515, .535, p));
       mesh.position.copy(initial).lerp(documentCenter.clone().add(new THREE.Vector3(i * .045, 0, -i * .018)), stack);
+      if (mobile) mesh.position.addScaledVector(new THREE.Vector3(0, 1, 0).applyQuaternion(camera.quaternion), -.35);
       mesh.quaternion.copy(camera.quaternion);
       mesh.scale.setScalar(1 + .3 * (i === 4 ? smooth(.46, .48, p) * (1 - stack) : 0));
       check.visible = mesh.visible && checked > .01;

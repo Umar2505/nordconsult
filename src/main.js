@@ -38,11 +38,15 @@ const capitalStory = document.querySelector('#capital-story');
 const capitalHandoff = document.querySelector('#capital-handoff');
 const roadmapOpening = document.querySelector('#roadmap-opening');
 const roadmapMilestone = document.querySelector('#roadmap-milestone');
+const roadmapCountries = document.querySelector('#roadmap-countries');
+const roadmapProgram = document.querySelector('#roadmap-program');
+const roadmapDocuments = document.querySelector('#roadmap-documents');
 const roadmapUniversityNote = document.querySelector('#roadmap-university-note');
 const roadmapApplicationState = document.querySelector('#roadmap-application-state');
 const roadmapWait = document.querySelector('#roadmap-wait');
 const roadmapAcceptance = document.querySelector('#roadmap-acceptance');
 const roadmapVisa = document.querySelector('#roadmap-visa');
+const roadmapVisaTrack = document.querySelector('#roadmap-visa-track');
 const roadmapFinal = document.querySelector('#roadmap-final');
 const roadmapSkip = document.querySelector('#roadmap-skip');
 const chapterName = document.querySelector('.chapter__name');
@@ -280,6 +284,8 @@ const hotspotButtons = world.markers.slice(1).map(marker => {
 });
 const chaos = createChaos(scene, passport, world, coverHinge);
 const roadmap = createRoadmap(scene, chaos);
+document.querySelector('#roadmap-program-name').textContent = ROADMAP_CONTENT.university.name;
+document.querySelector('#roadmap-program-details').textContent = `${ROADMAP_CONTENT.university.program} · ${ROADMAP_CONTENT.university.location}`;
 const stories = createStories(scene, roadmap, chaos);
 const builder = createJourneyBuilder(scene, chaos);
 const arrival = createArrival(scene, chaos, builder);
@@ -518,7 +524,7 @@ function animate() {
   intro.style.visibility = p < .48 ? 'visible' : 'hidden';
   sceneTwo.style.visibility = titleShow > .01 ? 'visible' : 'hidden';
   updateSceneThree(p3, p4, mobile);
-  updateSceneFour(p4, p5);
+  updateSceneFour(p4, p5, mobile);
   updateDestinationPanel(p2, p3, mobile);
   [finalQuestion, ...sceneThree.children, ...document.querySelector('#scene-four').children].forEach(node => {
     node.style.visibility = Number(node.style.opacity || 0) > .01 ? 'visible' : 'hidden';
@@ -575,7 +581,7 @@ function updateCapitalCardPositions(p3, p4, mobile) {
   });
 }
 
-function updateSceneFour(p4, p5) {
+function updateSceneFour(p4, p5, mobile) {
   roadmapOpening.style.opacity = String(smooth(.075, .115, p4) * (1 - smooth(.13, .15, p4)));
   const ranges = [[.15, .195], [.205, .29], [.36, .415], [.42, .51], [.525, .63], [.725, .81], [.815, .9], [.905, .935]];
   const index = ranges.findIndex(([a, b]) => p4 >= a && p4 < b);
@@ -588,6 +594,9 @@ function updateSceneFour(p4, p5) {
   }
   const range = ranges[index];
   roadmapMilestone.style.opacity = String(range && index < 5 ? smooth(range[0], range[0] + .01, p4) * (1 - smooth(range[1] - .01, range[1], p4)) : 0);
+  roadmapCountries.style.opacity = String(mobile ? smooth(.205, .22, p4) * (1 - smooth(.285, .305, p4)) : 0);
+  roadmapProgram.style.opacity = String(mobile ? smooth(.355, .37, p4) * (1 - smooth(.405, .425, p4)) : 0);
+  roadmapDocuments.style.opacity = String(mobile ? smooth(.425, .44, p4) * (1 - smooth(.495, .515, p4)) : 0);
   roadmapUniversityNote.style.opacity = String(smooth(.305, .325, p4) * (1 - smooth(.345, .365, p4)));
   roadmapApplicationState.style.opacity = String(smooth(.555, .575, p4) * (1 - smooth(.61, .635, p4)));
   roadmapApplicationState.textContent = p4 < .578 ? 'SUBMIT APPLICATION' : p4 < .603 ? 'SUBMITTING...' : 'APPLICATION SUBMITTED';
@@ -596,6 +605,7 @@ function updateSceneFour(p4, p5) {
   roadmapAcceptance.style.opacity = String(smooth(.748, .775, p4) * (1 - smooth(.812, .845, p4)));
   roadmapAcceptance.querySelector('h2').style.opacity = String(smooth(.777, .803, p4));
   roadmapVisa.style.opacity = String(smooth(.867, .887, p4) * (1 - smooth(.905, .93, p4)));
+  roadmapVisaTrack.style.opacity = roadmapVisa.style.opacity;
   roadmapFinal.style.opacity = String(smooth(.945, .97, p4) * (1 - smooth(.025, .105, p5)));
   roadmapFinal.querySelector('h2').style.opacity = String(smooth(.955, .985, p4));
   roadmapFinal.querySelector('small').style.opacity = String(smooth(.977, 1, p4));
