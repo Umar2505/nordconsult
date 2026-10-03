@@ -374,7 +374,6 @@ function animate() {
   const reduced = reducedMotion.matches;
   visualScroll = cinematicScroll.tick(performance.now());
   const mobile = window.innerWidth < 700 || window.innerWidth / window.innerHeight < 1;
-  const tablet = window.innerWidth >= 700 && window.innerWidth < 1050;
   const [chapterOneTravel, chapterTwoTravel, chapterThreeTravel, chapterFourTravel, chapterFiveTravel, chapterSixTravel, chapterSevenTravel, chapterEightTravel, chapterNineTravel] = getChapterTravel();
   const p = clamp(visualScroll / chapterOneTravel);
   const p2 = clamp((visualScroll - chapterOneTravel) / chapterTwoTravel);
@@ -402,10 +401,12 @@ function animate() {
   currentMouseX = lerp(currentMouseX, reduced || mobile ? 0 : mouseX, .025);
   currentMouseY = lerp(currentMouseY, reduced || mobile ? 0 : mouseY, .025);
   const compactOpening = mobile && innerHeight < 650;
-  passport.scale.setScalar(compactOpening ? lerp(.82, 1, approach) : 1);
+  const tabletOpening = !mobile && innerWidth < 901;
+  const passportScale = compactOpening ? lerp(.82, 1, approach) : tabletOpening ? lerp(.85, 1, approach) : 1;
+  passport.scale.setScalar(passportScale);
   passport.position.set(
-    mobile ? lerp(-1.28, 0, opening) : lerp(tablet ? .25 : 1.10, -width / 2, approach) * (1 - opening),
-    (mobile ? lerp(compactOpening ? -2.9 : -2.45, 0, approach) : -.08) + hover * .035,
+    lerp(-width * passportScale / 2, 0, opening),
+    (mobile ? lerp(compactOpening ? -2.9 : -2.45, 0, approach) : tabletOpening ? lerp(-1.75, -.08, approach) : -.08) + hover * .035,
     0
   );
   passport.rotation.set(
@@ -475,7 +476,7 @@ function animate() {
     chaos.studentCover.rotation.y = 0;
   }
   roadmap.root.visible = p4 > .001 && p5 < .30;
-  stories.update(p5, t, camera, mobile, reduced, { x: mouseX, y: mouseY });
+  stories.update(p5, t, camera, mobile, reduced, { x: mouseX, y: mouseY }, p6);
   builder.update(p6, t, camera, mobile, reduced, { x: mouseX, y: mouseY });
   }
   if (p6 > .5) arrival.preload();
@@ -583,7 +584,7 @@ function updateSceneFour(p4, p5) {
     currentRoadmapMilestone = index;
   }
   const range = ranges[index];
-  roadmapMilestone.style.opacity = String(range && index !== 5 ? smooth(range[0], range[0] + .01, p4) * (1 - smooth(range[1] - .01, range[1], p4)) : 0);
+  roadmapMilestone.style.opacity = String(range && index < 5 ? smooth(range[0], range[0] + .01, p4) * (1 - smooth(range[1] - .01, range[1], p4)) : 0);
   roadmapUniversityNote.style.opacity = String(smooth(.305, .325, p4) * (1 - smooth(.345, .365, p4)));
   roadmapApplicationState.style.opacity = String(smooth(.555, .575, p4) * (1 - smooth(.61, .635, p4)));
   roadmapApplicationState.textContent = p4 < .578 ? 'SUBMIT APPLICATION' : p4 < .603 ? 'SUBMITTING...' : 'APPLICATION SUBMITTED';
