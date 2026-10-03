@@ -403,10 +403,13 @@ function animate() {
   const compactOpening = mobile && innerHeight < 650;
   const tabletOpening = !mobile && innerWidth < 901;
   const passportScale = compactOpening ? lerp(.82, 1, approach) : tabletOpening ? lerp(.85, 1, approach) : 1;
+  const centeredPassportX = -width * passportScale / 2;
+  const rightColumnOffset = 10.6 * Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)) * camera.aspect / 2 - .1;
+  const startingPassportX = centeredPassportX + (mobile ? 0 : rightColumnOffset);
   passport.scale.setScalar(passportScale);
   passport.position.set(
-    lerp(-width * passportScale / 2, 0, opening),
-    (mobile ? lerp(compactOpening ? -2.9 : -2.45, 0, approach) : tabletOpening ? lerp(-1.75, -.08, approach) : -.08) + hover * .035,
+    lerp(lerp(startingPassportX, centeredPassportX, approach), 0, opening),
+    (mobile ? lerp(compactOpening ? -2.9 : -2.45, 0, approach) : -.08) + hover * .035,
     0
   );
   passport.rotation.set(
