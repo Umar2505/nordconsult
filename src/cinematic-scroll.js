@@ -1,9 +1,9 @@
 const clamp = (value, min = 0, max = 1) => Math.max(min, Math.min(max, value));
 
-const MOTION = Object.freeze({ micro: 420, short: 720, standard: 1120, cinematic: 1680, camera: 1380, photo: 1480 });
+const MOTION = Object.freeze({ micro: 420, short: 650, standard: 980, cinematic: 1380, camera: 1200, photo: 1250 });
 
 // Storyboard compositions in the existing choreography. These identifiers are
-// internal only; visitors see the eight chapter indicator.
+// internal only; visitors see the nine chapter indicator.
 export const CINEMATIC_STAGES = Object.freeze([
   { id: 'decision-intro', chapter: 0, progress: 0, duration: 'short' },
   { id: 'passport-approach', chapter: 0, progress: .54, duration: 'short' },

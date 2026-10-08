@@ -19,7 +19,6 @@ const canvas = document.querySelector('#experience');
 const stickyScene = document.querySelector('.scene__sticky');
 const loading = document.querySelector('#loading');
 const intro = document.querySelector('#intro');
-const microcopy = document.querySelector('#microcopy');
 const chapterNumber = document.querySelector('#chapter-number');
 const scrollCue = document.querySelector('#scroll-cue');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -503,9 +502,6 @@ function animate() {
   intro.style.opacity = String(1 - smooth(.02, .48, p));
   intro.style.transform = `translate(${(-8 * leave).toFixed(2)}vw, -46%)`;
   intro.style.pointerEvents = p > .35 ? 'none' : 'auto';
-  const micro = smooth(.36, .46, p) * (1 - smooth(.63, .75, p));
-  microcopy.style.opacity = String(micro * .85);
-  microcopy.style.transform = `translate(-50%, ${(20 - micro * 20).toFixed(1)}px)`;
   scrollCue.style.opacity = String(1 - smooth(0, .2, p));
   scrollCue.style.visibility = p < .2 ? 'visible' : 'hidden';
   chapterNumber.textContent = p9 > .01 ? '09' : p8 > .01 ? '08' : p7 > .01 ? '07' : p6 > .015 ? '06' : p5 > .015 ? '05' : p4 > .025 ? '04' : p3 > .035 ? '03' : p2 > .03 ? '02' : '01';
@@ -572,8 +568,10 @@ function updateCapitalCardPositions(p3, p4, mobile) {
     const pinVisibility = marker.facing ?? (marker.group.visible ? 1 : 0);
     const visible = reveal * pinVisibility;
     const dock = smooth(.55, .78, p3);
-    const x = pinX + offsetX * (1 - dock * .86) - width / 2;
-    const y = pinY + offsetY * (1 - dock * .86) - height / 2;
+    const naturalX = pinX + offsetX * (1 - dock * .86) - width / 2;
+    const naturalY = pinY + offsetY * (1 - dock * .86) - height / 2;
+    const x = mobile ? clamp(naturalX, 8, innerWidth - width - 8) : naturalX;
+    const y = mobile ? clamp(naturalY, 110, innerHeight * .62 - height) : naturalY;
     const entranceShift = (index < 3 ? -1 : 1) * (1 - reveal) * 18;
     card.style.opacity = String(visible);
     card.style.visibility = visible > .01 && marker.group.visible ? 'visible' : 'hidden';
@@ -594,9 +592,9 @@ function updateSceneFour(p4, p5, mobile) {
   }
   const range = ranges[index];
   roadmapMilestone.style.opacity = String(range && index < 5 ? smooth(range[0], range[0] + .01, p4) * (1 - smooth(range[1] - .01, range[1], p4)) : 0);
-  roadmapCountries.style.opacity = String(mobile ? smooth(.205, .22, p4) * (1 - smooth(.285, .305, p4)) : 0);
-  roadmapProgram.style.opacity = String(mobile ? smooth(.355, .37, p4) * (1 - smooth(.405, .425, p4)) : 0);
-  roadmapDocuments.style.opacity = String(mobile ? smooth(.425, .44, p4) * (1 - smooth(.495, .515, p4)) : 0);
+  roadmapCountries.style.opacity = String(smooth(.205, .22, p4) * (1 - smooth(.285, .305, p4)));
+  roadmapProgram.style.opacity = String(smooth(.355, .37, p4) * (1 - smooth(.405, .425, p4)));
+  roadmapDocuments.style.opacity = String(smooth(.425, .44, p4) * (1 - smooth(.495, .515, p4)));
   roadmapUniversityNote.style.opacity = String(smooth(.305, .325, p4) * (1 - smooth(.345, .365, p4)));
   roadmapApplicationState.style.opacity = String(smooth(.555, .575, p4) * (1 - smooth(.61, .635, p4)));
   roadmapApplicationState.textContent = p4 < .578 ? 'SUBMIT APPLICATION' : p4 < .603 ? 'SUBMITTING...' : 'APPLICATION SUBMITTED';

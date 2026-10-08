@@ -582,3 +582,66 @@ html[lang="uz"] .scene-four__opening h2,html[lang="ru"] .scene-four__opening h2{
  .scene-five__portrait{position:absolute;right:14px;bottom:16px;width:96px;height:76px}
  .scene-five__portrait img{object-fit:contain}
 }
+
+/* Scene polish: give every chapter a clear reading plane and generous targets. */
+.intro .support{font-size:clamp(14px,1.15vw,17px);line-height:1.55}
+.primary-cta{min-height:44px;align-items:center}
+.scene-two{isolation:isolate}
+.scene-two:before{content:"";position:absolute;z-index:-1;inset:-45vh -5vw;background:radial-gradient(ellipse 67% 44% at 24% 50%,rgba(7,17,21,.85),rgba(7,17,21,.48) 56%,transparent 100%);pointer-events:none}
+.scene-two__support{color:#e2e8e1;font-size:clamp(14px,1.15vw,17px);line-height:1.55;text-shadow:0 2px 12px #071115}
+.capital-gallery__story span{color:#d7e0d8;font-size:clamp(13px,1.1vw,16px);line-height:1.5}
+.capital-card figcaption strong{font-size:10px;letter-spacing:.12em}
+.scene-four__milestone small,.scene-four__opening small{color:#d5ded5;font-size:clamp(14px,1.15vw,17px)}
+.scene-four__countries,.scene-four__program,.scene-four__documents{display:block;left:6vw;top:54vh;width:min(430px,38vw);border-left:2px solid #d3b784;background:linear-gradient(90deg,rgba(8,24,27,.94),rgba(8,24,27,.5));padding:13px 15px;text-shadow:0 3px 18px #071216}
+.scene-four__countries>div{display:flex;gap:14px;margin-top:8px;font-size:13px;font-weight:600}
+.scene-four__countries p{font-size:13px;line-height:1.45;margin:8px 0 0;color:#d5ded5}
+.scene-four__program{background:linear-gradient(90deg,rgba(8,24,27,.94),rgba(8,24,27,.58))}
+.scene-four__program strong,.scene-four__program span{display:block}
+.scene-four__program strong{font-size:16px;margin-top:7px}.scene-four__program span{font-size:13px;line-height:1.4;margin-top:5px;color:#d4ded5}
+.scene-four__documents>div{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:9px;font-size:12px;color:#e6e0d2}
+.scene-five__story-top span:last-child{color:#d5ded7;font-size:10px;line-height:1.4}
+.scene-five__story .scene-five__story-route{font-size:12px;line-height:1.45}
+.scene-five__story a{font-size:12px;min-height:36px;align-content:center}
+.scene-six__support{color:#d5e0d8;font-size:15px}
+.scene-six__question-actions button,.scene-six__result-actions button,.scene-six__form-actions button{font-size:12px;min-height:44px}
+.scene-six__contact label,.scene-six__contact legend{font-size:11px}
+.photo-shade--left{background:linear-gradient(90deg,rgba(4,9,11,.82),rgba(4,9,11,.25) 64%,transparent 88%)}
+.photo-credit,.photo-portal figcaption{color:#f7f1e5;text-shadow:0 2px 10px #000;font-size:10px}
+.research-work header h2 em,.draft-work header h2 em,.detail-work>h2 em{color:#765026}
+.research-work header small{color:#524a3f;font-size:11px;line-height:1.45}
+.university-sheet small{color:#5d5142;font-size:10px}
+.university-sheet p{font-size:11px}
+.final-action{width:min(560px,80vw)}
+.final-action__eyebrow{margin:0 0 13px;color:#d3b988;font-size:11px;font-weight:600;letter-spacing:.22em}
+.final-action button{font-size:clamp(21px,2vw,28px);min-height:56px}
+.final-action b{top:69px}
+.final-action small{color:#b6c0b8;font-size:12px;line-height:1.55;max-width:450px}
+.final-contact label,.final-contact legend{font-size:11px}
+.final-contact fieldset button{font-size:10px;min-height:40px}
+.final-contact__privacy{font-size:11px;color:#aab6ae}
+.final-contact__submit{font-size:13px;min-height:44px}
+@media(max-width:700px){
+ .intro .support{font-size:14px}.primary-cta{font-size:13px}
+ .scene-two{top:34%}.scene-two:before{inset:-44vh -6vw;background:radial-gradient(ellipse 82% 42% at 28% 48%,rgba(6,16,19,.87),rgba(6,16,19,.48) 56%,transparent 100%)}
+ .scene-two__support{font-size:13px;max-width:275px}
+ .capital-gallery__story{bottom:10vh}.capital-gallery__story span{font-size:12px;max-width:300px}
+ .capital-card figcaption strong{font-size:9px}
+ .scene-four__milestone small,.scene-four__opening small{font-size:13px;max-width:300px}
+ .scene-four__countries,.scene-four__program,.scene-four__documents{left:6vw;right:6vw;width:88vw}
+ .scene-four__countries{top:calc(17vh + 185px)}.scene-four__program{top:calc(17vh + 190px)}.scene-four__documents{top:calc(17vh + 165px)}
+ .scene-four__program{padding:9px 12px}.scene-four__program strong{font-size:15px}.scene-four__program span{font-size:12px}
+ .scene-five__story-top span:last-child{font-size:9px}.scene-five__story .scene-five__story-route{font-size:10px}
+ .scene-five__story a{font-size:11px;min-height:32px}.scene-five__story p:not(.scene-five__story-route){font-size:12px}
+ .scene-six__support{font-size:13px}.builder-choice{font-size:16px}
+ .photo-shade--left{background:linear-gradient(90deg,rgba(4,9,11,.75),rgba(4,9,11,.28) 75%,rgba(4,9,11,.08))}
+ .photo-credit,.photo-portal figcaption{font-size:9px;bottom:10vh}
+ .research-work header small{font-size:10px}.university-sheet p{font-size:10px}
+ .final-action{width:82vw;top:45%}.final-action__eyebrow{font-size:10px}.final-action button{font-size:19px}.final-action small{font-size:11px;margin-top:20px}
+ .final-contact fieldset button{min-height:44px}.final-contact__submit{font-size:12px}
+}
+@media(max-width:360px){
+ .intro{top:31%}
+ .intro__lower{margin-top:18px}.primary-cta{margin-top:12px}
+ .final-action{width:90vw}.final-action button{font-size:16px;white-space:nowrap}.final-action button span{margin-left:7px}.final-action b{top:65px}
+ .chapter__name{max-width:175px;line-height:1.3;letter-spacing:.1em}
+}
