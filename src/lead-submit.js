@@ -1,3 +1,5 @@
+import { contactError } from './contact-field.js';
+
 const inbox = (import.meta.env.VITE_LEAD_INBOX || '').trim();
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -11,7 +13,8 @@ export async function submitLead(lead, honeypot = '') {
   if (name.length < 2 || name.length > 120 || contact.length < 3 || contact.length > 254) {
     throw new Error('invalid_contact');
   }
-  if (lead.contactMethod === 'Email' && !emailPattern.test(contact)) throw new Error('invalid_email');
+  const error = contactError(lead.contactMethod, contact);
+  if (error) throw new Error(lead.contactMethod === 'Email' ? 'invalid_email' : 'invalid_contact');
 
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 15000);

@@ -1,6 +1,7 @@
 import { escapeHTML } from './dom.js';
 import { t } from './i18n.js';
 import { leadDeliveryReady, submitLead } from './lead-submit.js';
+import { contactError, contactFieldConfig } from './contact-field.js';
 import * as THREE from 'three';
 
 const clamp = n => Math.max(0, Math.min(1, n));
@@ -74,6 +75,7 @@ export function createJourneyBuilder(scene, chaos) {
   const summary = document.querySelector('#builder-summary');
   const contact = document.querySelector('#builder-contact');
   const form = document.querySelector('#lead-form');
+  const nameInput = document.querySelector('#lead-name');
   const methodButtons = [...document.querySelectorAll('[data-contact-method]')];
   const contactLabel = document.querySelector('#lead-contact-label');
   const contactInput = document.querySelector('#lead-contact');
@@ -90,6 +92,7 @@ export function createJourneyBuilder(scene, chaos) {
   const profile = { studyLevel: '', field: '', region: '', country: '', priority: '', budget: '' };
   let advancing = false, advanceTimer = 0, contactOpen = false, sending = false;
   let step = 0, progress = 0, contactMethod = 'WhatsApp', complete = false, outcome = '', submittedAt = '';
+  const contactValues = new Map();
   const storageKey = 'nord-journey-builder-v1';
 
   try {
@@ -325,16 +328,29 @@ export function createJourneyBuilder(scene, chaos) {
     if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
     else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
   });
+  function setContactMethod(next) {
+    if (sending) return;
+    if (next !== contactMethod) {
+      contactValues.set(contactMethod, contactInput.value);
+      contactInput.value = contactValues.get(next) || '';
+    }
+    contactMethod = next;
+    const config = contactFieldConfig(next);
+    methodButtons.forEach(item => item.setAttribute('aria-pressed', String(item.dataset.contactMethod === next)));
+    contactLabel.textContent = t(config.label);
+    contactInput.type = config.type;
+    contactInput.inputMode = config.inputMode;
+    contactInput.autocomplete = config.autocomplete;
+    contactInput.placeholder = config.placeholder;
+    contactInput.setCustomValidity('');
+  }
+  setContactMethod(contactMethod);
   methodButtons.forEach(button => button.addEventListener('click', () => {
-    contactMethod = button.dataset.contactMethod;
-    methodButtons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
-    contactLabel.textContent = contactMethod.toUpperCase();
-    contactInput.type = contactMethod === 'Email' ? 'email' : contactMethod === 'Telegram' ? 'text' : 'tel';
-    contactInput.inputMode = contactInput.type;
-    contactInput.autocomplete = contactMethod === 'Email' ? 'email' : contactMethod === 'Telegram' ? 'off' : 'tel';
-    contactInput.placeholder = contactMethod === 'Email' ? 'you@example.com' : contactMethod === 'Telegram' ? '@username or phone' : 'Your number';
+    setContactMethod(button.dataset.contactMethod);
     contactInput.focus();
   }));
+  contactInput.addEventListener('input', () => contactInput.setCustomValidity(''));
+  nameInput.addEventListener('input', () => nameInput.setCustomValidity(''));
 
   skip.addEventListener('click', () => {
     if (sending) return;
@@ -348,10 +364,12 @@ export function createJourneyBuilder(scene, chaos) {
 
   form.addEventListener('submit', async event => {
     event.preventDefault();
+    nameInput.setCustomValidity(nameInput.value.trim().length < 2 ? t('Enter your name.') : '');
+    contactInput.setCustomValidity(t(contactError(contactMethod, contactInput.value)));
     if (sending || !form.reportValidity()) return;
     sending = true; submit.disabled = true; skip.disabled = true; contactBack.disabled = true; submit.textContent = 'SENDING...'; formStatus.textContent = 'Sending your journey profile…'; formStatus.dataset.state = 'sending';
     const lead = {
-        name: document.querySelector('#lead-name').value.trim(), contactMethod,
+        name: nameInput.value.trim(), contactMethod,
         contact: contactInput.value.trim(), ...profile,
         timestamp: new Date().toISOString(), source: 'interactive-story-scene-6', storyProgress: 6
     };

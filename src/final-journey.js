@@ -1,6 +1,7 @@
 import { escapeHTML } from './dom.js';
 import { t } from './i18n.js';
 import { leadDeliveryReady, submitLead } from './lead-submit.js';
+import { contactError, contactFieldConfig } from './contact-field.js';
 const clamp = n => Math.max(0, Math.min(1, n));
 const smooth = (a, b, n) => { const t = clamp((n - a) / (b - a)); return t * t * (3 - 2 * t); };
 
@@ -58,6 +59,7 @@ export function createFinalJourney(builder, arrival) {
   let formOpen = false;
   let submitted = builder.getState().outcome === 'submitted';
   let sending = false;
+  const contactValues = new Map();
   let entered = false;
   let autoOpened = false;
 
@@ -90,15 +92,20 @@ export function createFinalJourney(builder, arrival) {
   }
 
   function setMethod(next) {
+    if (sending) return;
+    if (next !== method) {
+      contactValues.set(method, contactInput.value);
+      contactInput.value = contactValues.get(next) || '';
+    }
     method = next;
     methodButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.finalMethod === method)));
-    const email = method === 'Email';
-    const telegram = method === 'Telegram';
-    contactLabel.textContent = email ? 'EMAIL ADDRESS' : telegram ? 'TELEGRAM USERNAME OR PHONE' : `${method.toUpperCase()} NUMBER`;
-    contactInput.type = email ? 'email' : telegram ? 'text' : 'tel';
-    contactInput.inputMode = email ? 'email' : telegram ? 'text' : 'tel';
-    contactInput.autocomplete = email ? 'email' : telegram ? 'off' : 'tel';
-    contactInput.placeholder = email ? 'you@example.com' : telegram ? '@username or +358…' : '+358 40 123 4567';
+    const config = contactFieldConfig(method);
+    contactLabel.textContent = t(config.label);
+    contactInput.type = config.type;
+    contactInput.inputMode = config.inputMode;
+    contactInput.autocomplete = config.autocomplete;
+    contactInput.placeholder = config.placeholder;
+    contactInput.setCustomValidity('');
     dispatch('contact_method_selected', { method });
   }
 
@@ -118,6 +125,7 @@ export function createFinalJourney(builder, arrival) {
   }
 
   function closeContact() {
+    if (sending) return;
     formOpen = false;
     ui.classList.remove('is-contact');
     contact.setAttribute('aria-hidden', 'true');
@@ -136,7 +144,10 @@ export function createFinalJourney(builder, arrival) {
   cta.addEventListener('click', openContact);
   closingCta.addEventListener('click', openContact);
   methodButtons.forEach(button => button.addEventListener('click', () => setMethod(button.dataset.finalMethod)));
+  contactInput.addEventListener('input', () => contactInput.setCustomValidity(''));
+  nameInput.addEventListener('input', () => nameInput.setCustomValidity(''));
   editProfile.addEventListener('click', () => {
+    if (sending) return;
     formOpen = false;
     ui.classList.remove('is-contact');
     contact.setAttribute('aria-hidden', 'true');
@@ -146,6 +157,8 @@ export function createFinalJourney(builder, arrival) {
 
   form.addEventListener('submit', async event => {
     event.preventDefault();
+    nameInput.setCustomValidity(nameInput.value.trim().length < 2 ? t('Enter your name.') : '');
+    contactInput.setCustomValidity(t(contactError(method, contactInput.value)));
     if (sending || !form.reportValidity()) return;
     sending = true;
     ui.classList.add('is-sending');

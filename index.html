@@ -153,14 +153,14 @@
               <small>Leave your details and a consultant can review this profile and prepare realistic university options.</small>
               <form id="lead-form" novalidate>
                 <label class="form-honeypot" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off" /></label>
-                <label>NAME<input id="lead-name" name="name" autocomplete="name" required /></label>
+                <label>NAME<input id="lead-name" name="name" autocomplete="name" minlength="2" maxlength="120" required /></label>
                 <fieldset><legend>HOW SHOULD WE CONTACT YOU?</legend>
                   <button type="button" data-contact-method="WhatsApp" aria-pressed="true">WHATSAPP</button>
                   <button type="button" data-contact-method="Telegram" aria-pressed="false">TELEGRAM</button>
                   <button type="button" data-contact-method="Phone" aria-pressed="false">PHONE</button>
                   <button type="button" data-contact-method="Email" aria-pressed="false">EMAIL</button>
                 </fieldset>
-                <label><span id="lead-contact-label">WHATSAPP</span><input id="lead-contact" name="contact" autocomplete="tel" placeholder="Your number" required /></label>
+                <label><span id="lead-contact-label">WHATSAPP NUMBER</span><input id="lead-contact" name="contact" type="tel" inputmode="tel" autocomplete="tel" maxlength="254" placeholder="+998 90 123 45 67" required /></label>
                 <p class="scene-six__privacy" id="privacy-note">We'll only use your details to contact you about your study options. <a href="/privacy.html" target="_blank" rel="noopener">Privacy policy</a></p>
                 <p class="scene-six__form-status" id="lead-status" role="status" aria-live="polite"></p>
                 <div class="scene-six__form-actions"><button id="lead-submit" type="submit">CONTINUE MY JOURNEY →</button><button id="lead-skip" type="button">EXPLORE WITHOUT SUBMITTING →</button><button id="lead-back" type="button">← BACK TO MY JOURNEY</button></div>
@@ -373,15 +373,15 @@
                 <small>We'll use your profile to understand what you're looking for before we speak.</small>
                 <form id="final-lead-form" novalidate>
                   <label class="form-honeypot" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off" /></label>
-                  <label for="final-lead-name">YOUR NAME</label><input id="final-lead-name" name="name" autocomplete="name" required />
+                  <label for="final-lead-name">YOUR NAME</label><input id="final-lead-name" name="name" autocomplete="name" minlength="2" maxlength="120" required />
                   <fieldset><legend>HOW SHOULD WE CONTACT YOU?</legend>
                     <button type="button" data-final-method="WhatsApp" aria-pressed="true">WHATSAPP</button>
                     <button type="button" data-final-method="Telegram" aria-pressed="false">TELEGRAM</button>
                     <button type="button" data-final-method="Phone" aria-pressed="false">PHONE</button>
                     <button type="button" data-final-method="Email" aria-pressed="false">EMAIL</button>
                   </fieldset>
-                  <label for="final-lead-contact" id="final-lead-contact-label">WHATSAPP NUMBER</label><input id="final-lead-contact" name="contact" type="tel" inputmode="tel" autocomplete="tel" placeholder="+358 40 123 4567" required />
-                  <label for="final-lead-message">ANYTHING YOU'D LIKE US TO KNOW? <span>OPTIONAL</span></label><textarea id="final-lead-message" name="message" rows="3"></textarea>
+                  <label for="final-lead-contact" id="final-lead-contact-label">WHATSAPP NUMBER</label><input id="final-lead-contact" name="contact" type="tel" inputmode="tel" autocomplete="tel" maxlength="254" placeholder="+998 90 123 45 67" required />
+                  <label for="final-lead-message">ANYTHING YOU'D LIKE US TO KNOW? <span>OPTIONAL</span></label><textarea id="final-lead-message" name="message" rows="3" maxlength="3000"></textarea>
                   <p class="final-contact__privacy">We'll only use your details to contact you about your study plans. <a href="/privacy.html" target="_blank" rel="noopener">Privacy policy</a></p>
                   <p class="final-contact__status" id="final-lead-status" role="status" aria-live="polite"></p>
                   <button class="final-contact__submit" id="final-lead-submit" type="submit">CONTINUE MY JOURNEY <span>→</span></button>
