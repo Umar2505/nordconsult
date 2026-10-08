@@ -554,6 +554,7 @@ function updateSceneThree(p3, p4, mobile) {
 function updateCapitalCardPositions(p3, p4, mobile) {
   const desktopOffsets = [[118,116],[-112,-112],[-116,-38],[-112,42],[114,-108],[116,-34],[114,42],[118,116]];
   const mobileOffsets = [[76,92],[-76,-96],[-78,-36],[-76,28],[76,-88],[78,-30],[76,28],[78,88]];
+  const shortLandscape = !mobile && innerHeight <= 500;
   const offsets = mobile ? mobileOffsets : desktopOffsets;
   world.markers.forEach((marker, index) => {
     const card = capitalCards[index];
@@ -570,8 +571,8 @@ function updateCapitalCardPositions(p3, p4, mobile) {
     const dock = smooth(.55, .78, p3);
     const naturalX = pinX + offsetX * (1 - dock * .86) - width / 2;
     const naturalY = pinY + offsetY * (1 - dock * .86) - height / 2;
-    const x = mobile ? clamp(naturalX, 8, innerWidth - width - 8) : naturalX;
-    const y = mobile ? clamp(naturalY, 110, innerHeight * .62 - height) : naturalY;
+    const x = shortLandscape ? innerWidth * .48 + (index % 3) * (width + 9) : mobile ? clamp(naturalX, 8, innerWidth - width - 8) : naturalX;
+    const y = shortLandscape ? Math.max(64, innerHeight * .16) + Math.floor(index / 3) * (height + 8) : mobile ? clamp(naturalY, 110, innerHeight * .62 - height) : naturalY;
     const entranceShift = (index < 3 ? -1 : 1) * (1 - reveal) * 18;
     card.style.opacity = String(visible);
     card.style.visibility = visible > .01 && marker.group.visible ? 'visible' : 'hidden';
